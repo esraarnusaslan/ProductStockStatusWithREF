@@ -604,7 +604,7 @@
                                     </If>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="İnvoke Kill Process Wf " sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="Z01_Init\KillProcess_Wf.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="s:String[]" x:Key="in_ProcessName">[New String() {Config("KillProcess").ToString()}]</InArgument>
+                                        <InArgument x:TypeArguments="s:String[]" x:Key="in_ProcessName">[Config("KillProcess").ToString().Split(";"c)]</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
                                     <ui:AddLogFields sap2010:Annotation.AnnotationText="Add the process name to the logs generated after this point. &#xA;This log field can be used to create reports and visualizations about the process." DisplayName="Add Log Fields (BusinessProcessName)" sap:VirtualizedContainerService.HintSize="353.6,188.8" sap2010:WorkflowViewState.IdRef="AddLogFields_2">
