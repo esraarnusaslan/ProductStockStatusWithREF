@@ -7,7 +7,6 @@
     <x:Property Name="in_ProductListPath" Type="InArgument(x:String)" />
     <x:Property Name="in_arrColumnName_Stock" Type="InArgument(s:String[])" />
     <x:Property Name="in_arrColumnName_ProductList" Type="InArgument(s:String[])" />
-    <x:Property Name="productStokPathGlobal" Type="InArgument(x:String)" />
     <x:Property Name="dictInputProductListQueue" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="dictInputProducStockQueue" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
@@ -17,7 +16,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>828,3778.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>828,5980</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>QueeCleaning_Wf_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -110,7 +109,7 @@
       <AssemblyReference>System.Private.Xml</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Quee Cleaning Wf" sap:VirtualizedContainerService.HintSize="715.2,3713.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Quee Cleaning Wf" sap:VirtualizedContainerService.HintSize="715.2,5915.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="queue_NewItems" />
       <Variable x:TypeArguments="x:String" Name="excelPath" />
@@ -130,7 +129,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:Comment sap:VirtualizedContainerService.HintSize="652.8,88" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Loads the data into the queue" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="652.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Queue load started&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="652.8,112.8" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="652.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[excelPath]</OutArgument>
       </Assign.To>
@@ -138,7 +137,7 @@
         <InArgument x:TypeArguments="x:String">[in_ProductStockPath]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Column Adding to Product Stock" sap:VirtualizedContainerService.HintSize="652.8,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" MaxIterations="{x:Null}" Values="[in_arrColumnName_Stock]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Column Adding to Product Stock" sap:VirtualizedContainerService.HintSize="652.8,1156.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_arrColumnName_Stock]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -166,7 +165,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" ColumnName="[item]" DataTable="[io_ProductStockGlobal]" DefaultValue="{x:Null}" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="353.6,211.2" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" MaxLength="{x:Null}" Unique="{x:Null}" />
+                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="[item]" DataTable="[io_ProductStockGlobal]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="353.6,211.2" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
                       </Sequence>
                     </If.Then>
                     <If.Else>
@@ -196,12 +195,12 @@
       </ui:ForEach.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <Assign sap:VirtualizedContainerService.HintSize="652.8,112.8" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="652.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[excelPath]</OutArgument>
       </Assign.To>
@@ -209,7 +208,7 @@
         <InArgument x:TypeArguments="x:String">[in_ProductListPath]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Column Adding to Product List " sap:VirtualizedContainerService.HintSize="652.8,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" MaxIterations="{x:Null}" Values="[in_arrColumnName_ProductList]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Column Adding to Product List " sap:VirtualizedContainerService.HintSize="652.8,1156.8" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_arrColumnName_ProductList]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -237,7 +236,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" ColumnName="[item]" DataTable="[io_ProductListGlobal]" DefaultValue="{x:Null}" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="353.6,211.2" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" MaxLength="{x:Null}" Unique="{x:Null}" />
+                        <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="[item]" DataTable="[io_ProductListGlobal]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="353.6,211.2" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" />
                       </Sequence>
                     </If.Then>
                     <If.Else>
@@ -267,14 +266,14 @@
       </ui:ForEach.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="652.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Desired columns were added to data tables&quot;]" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="652.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Data tables to be put into the queue are returned with for each row data table&quot;]" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[io_ProductListGlobal]" DisplayName="For Each Row in Data Table for Product List" sap:VirtualizedContainerService.HintSize="652.8,1341.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1" MaxIterations="{x:Null}" Values="{x:Null}">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[io_ProductListGlobal]" DisplayName="For Each Row in Data Table for Product List" sap:VirtualizedContainerService.HintSize="652.8,1341.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -300,7 +299,7 @@
                       <InArgument x:TypeArguments="sd:DataRow" x:Key="in_dtRowProductList">[CurrentRowProductList]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:RetryScope ContinueOnError="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="457.6,505.6" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+                  <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="457.6,505.6" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
                     <ui:RetryScope.ActivityBody>
                       <ActivityAction>
                         <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,306.4" sap2010:WorkflowViewState.IdRef="Sequence_15">
@@ -309,7 +308,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:AddQueueItem ContinueOnError="{x:Null}" DeferDate="{x:Null}" DisplayName="Add Queue Item for Product List" DueDate="[DateTime.Now]" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="353.6,217.6" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" ItemInformationCollection="[dictInputProductListQueue]" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[dictInputProductListQueue(&quot;Malzeme Adı&quot;).ToString]" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}">
+                          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item for Product List" DueDate="[DateTime.Now]" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="353.6,217.6" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" ItemInformationCollection="[dictInputProductListQueue]" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[dictInputProductListQueue(&quot;Malzeme Adı&quot;).ToString]">
                             <ui:AddQueueItem.ItemInformation>
                               <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                             </ui:AddQueueItem.ItemInformation>
@@ -350,7 +349,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[io_ProductStockGlobal]" DisplayName="For Each Row in Data Table for Product Stock" sap:VirtualizedContainerService.HintSize="652.8,1332.8" sap2010:WorkflowViewState.IdRef="ForEachRow_2" MaxIterations="{x:Null}" Values="{x:Null}">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[io_ProductStockGlobal]" DisplayName="For Each Row in Data Table for Product Stock" sap:VirtualizedContainerService.HintSize="652.8,1332.8" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -379,7 +378,7 @@
                       <InArgument x:TypeArguments="sd:DataRow" x:Key="in_dtRowProductStock">[CurrentRow]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:RetryScope ContinueOnError="{x:Null}" DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="457.6,505.6" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:05">
+                  <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="457.6,505.6" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:05">
                     <ui:RetryScope.ActivityBody>
                       <ActivityAction>
                         <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,306.4" sap2010:WorkflowViewState.IdRef="Sequence_17">
@@ -388,7 +387,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:AddQueueItem ContinueOnError="{x:Null}" DeferDate="{x:Null}" DisplayName="Add Queue Item for Product Stock" DueDate="[DateTime.Now]" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="353.6,217.6" sap2010:WorkflowViewState.IdRef="AddQueueItem_2" ItemInformationCollection="[dictInputProducStockQueue]" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[dictInputProducStockQueue(&quot;Malzeme Adı&quot;).ToString]" ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}">
+                          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item for Product Stock" DueDate="[DateTime.Now]" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="353.6,217.6" sap2010:WorkflowViewState.IdRef="AddQueueItem_2" ItemInformationCollection="[dictInputProducStockQueue]" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[dictInputProducStockQueue(&quot;Malzeme Adı&quot;).ToString]">
                             <ui:AddQueueItem.ItemInformation>
                               <scg:Dictionary x:TypeArguments="x:String, InArgument" />
                             </ui:AddQueueItem.ItemInformation>
