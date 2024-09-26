@@ -30,8 +30,8 @@
       "DataSourceItems": null
     },
     {
-      "Name": "out_reportDatatable",
-      "DisplayName": "out_reportDatatable",
+      "Name": "in_dtMerge",
+      "DisplayName": "in_dtMerge",
       "Category": null,
       "Tooltip": null,
       "Placeholder": null,
