@@ -106,7 +106,7 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="592,1783.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="871.2,1660" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="malzemeAdı" />
       <Variable x:TypeArguments="x:String" Name="sku" />
@@ -121,9 +121,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="529.6,107.2" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Transactions become from get transaction data is added to Report Excel" />
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="529.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="529.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="500.8,107.2" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Transactions become from get transaction data is added to Report Excel" />
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="500.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <Assign DisplayName="Assign Malzeme Adı" sap:VirtualizedContainerService.HintSize="500.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[malzemeAdı]</OutArgument>
       </Assign.To>
@@ -131,7 +131,7 @@
         <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Malzeme Adı").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="529.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Assign SKU" sap:VirtualizedContainerService.HintSize="500.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[sku]</OutArgument>
       </Assign.To>
@@ -139,7 +139,7 @@
         <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("SKU").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="529.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign DisplayName="Assign Minimum Stok Seviyesi" sap:VirtualizedContainerService.HintSize="500.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[minStokSeviyesi]</OutArgument>
       </Assign.To>
@@ -147,7 +147,7 @@
         <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Minimum Stok Seviyesi").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="529.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Assign Stok Seviyesi" sap:VirtualizedContainerService.HintSize="500.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[stokSeviyesi]</OutArgument>
       </Assign.To>
@@ -155,7 +155,7 @@
         <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Stok Seviyesi").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="529.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign DisplayName="Assign Eksik Stok Miktarı" sap:VirtualizedContainerService.HintSize="500.8,113.6" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[eksikStokMiktarı]</OutArgument>
       </Assign.To>
@@ -163,9 +163,9 @@
         <InArgument x:TypeArguments="x:Int32">[CInt(stokSeviyesi)-CInt(minStokSeviyesi)]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[eksikStokMiktarı&lt;0]" sap:VirtualizedContainerService.HintSize="529.6,557.6" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[eksikStokMiktarı&lt;0]" DisplayName="If stock is sufficient or stock is insufficient" sap:VirtualizedContainerService.HintSize="500.8,500" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="467.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -182,7 +182,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="467.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -199,6 +199,6 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() {malzemeAdı, sku, stokSeviyesi, eksikStokMiktarı, stokDurumu}]" DataTable="[in_dt_Report]" DisplayName="Add Data Row to Report Excel" sap:VirtualizedContainerService.HintSize="529.6,211.2" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() {malzemeAdı, sku, stokSeviyesi, eksikStokMiktarı, stokDurumu}]" DataTable="[in_dt_Report]" DisplayName="Add Data Row to Report Excel" sap:VirtualizedContainerService.HintSize="500.8,211.2" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
   </Sequence>
 </Activity>
